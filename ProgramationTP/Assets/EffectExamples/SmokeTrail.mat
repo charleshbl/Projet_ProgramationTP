@@ -28,7 +28,7 @@ Material:
   - TransparentDepthPostpass
   - TransparentBackface
   - MOTIONVECTORS
-  - ALWAYS
+  - GRABPASS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
