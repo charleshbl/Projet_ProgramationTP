@@ -28,9 +28,9 @@ public class Door : MonoBehaviour
     {
         if (other.gameObject.CompareTag(_porteName))
         {
-           // _porte.GetComponent<Rigidbody>().mass = 1;
+            _porte.GetComponent<Rigidbody>().mass = 1;
           // _porte.transform.Rotate(0, 90, 0, relativeTo: _spacepivot);
-           animator.SetBool("IsOpen", true);
+          // animator.SetBool("IsOpen", true);
             //animator.Play("Anim_Door");
         }
     }
