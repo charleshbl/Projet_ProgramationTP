@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Floor
   - rustyKey
+  - silverKey
+  - cash1
+  - cash10
+  - cash25
   layers:
   - Default
   - TransparentFX
