@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class door : MonoBehaviour
+public class Door : MonoBehaviour
 {
     public GameObject _porte;
+    public GameObject _pivot;
     public Collider _serure;
     public string _porteName;
     // Start is called before the first frame update
     void Start()
     {
         _porte = GetComponent<GameObject>();
+        _pivot = GetComponent<GameObject>();
         _serure = GetComponent<Collider>();
+   
     }
 
     // Update is called once per frame
@@ -19,14 +22,17 @@ public class door : MonoBehaviour
     {
 
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-       if (collision.collider.CompareTag(_porteName))
+        if (_porteName == other.tag)
         {
-            _porte.transform.Translate(_porte.transform.position);
+            // _porte.GetComponent<Rigidbody>().mass = 1;
+            _porte.transform.Rotate(_pivot.transform.position,90);       
+
         }
     }
+
+   
 
 }
 
