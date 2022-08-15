@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 376147812551622049}
   - component: {fileID: 376147812551622048}
+  - component: {fileID: 1142690894}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -71,11 +72,27 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376147812551622050}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1142690894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376147812551622050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b643ba6bceb69ef478e09e9beae98816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _porte: {fileID: 6960826600080697575}
+  _pivot: {fileID: 376147811531520017}
+  _serure: {fileID: 376147812551622048}
+  _porteName: rustyKey
 --- !u!1 &6960826600080697575
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +106,7 @@ GameObject:
   - component: {fileID: 6960826600078505511}
   - component: {fileID: 6960826600080797273}
   - component: {fileID: 376147812070844693}
-  - component: {fileID: 2459148767733988999}
+  - component: {fileID: 7323286858376317995}
   m_Layer: 0
   m_Name: Jail_Door_Left
   m_TagString: Untagged
@@ -104,9 +121,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6960826600080697575}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -4.297, y: -7.94345, z: -21.920193}
-  m_LocalScale: {x: 1.18, y: 1.18, z: 1.18}
+  m_LocalScale: {x: 1.136556, y: 1.136556, z: 1.136556}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 376147812551622049}
@@ -192,25 +209,41 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 2
---- !u!95 &2459148767733988999
-Animator:
-  serializedVersion: 4
+  m_Constraints: 16
+  m_CollisionDetection: 0
+--- !u!59 &7323286858376317995
+HingeJoint:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6960826600080697575}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 19eba5f442dcbba4c8ffbaa488a1dae4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 0, y: 1, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 0
+  m_Limits:
+    min: 0
+    max: 0
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 1
+  m_EnablePreprocessing: 1
+  m_MassScale: 0.00001
+  m_ConnectedMassScale: 0.00001
