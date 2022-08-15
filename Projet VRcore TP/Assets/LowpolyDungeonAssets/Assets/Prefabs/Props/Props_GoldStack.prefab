@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3916486372703484230}
   - component: {fileID: -4404561992712969229}
   - component: {fileID: 119554811200937012}
+  - component: {fileID: 8062815740611491549}
   m_Layer: 0
   m_Name: Props_GoldStack
   m_TagString: cash25
@@ -334,3 +335,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8062815740611491549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220181555783000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a04e7382da90474b9427d83f30775e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxCollider: {fileID: 990435360692215902}
+  CashAudioClip: {fileID: 119554811200937012}

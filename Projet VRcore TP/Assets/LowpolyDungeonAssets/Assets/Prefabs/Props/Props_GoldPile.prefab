@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2529894284306340513}
   - component: {fileID: -7129831273672256085}
   - component: {fileID: -7933031726877619292}
+  - component: {fileID: 1113980835598428561}
   m_Layer: 0
   m_Name: Props_GoldPile
   m_TagString: cash10
@@ -334,3 +335,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1113980835598428561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242776226696080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a04e7382da90474b9427d83f30775e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxCollider: {fileID: 2529894284306340513}
+  CashAudioClip: {fileID: -7933031726877619292}
