@@ -10,13 +10,18 @@ public class Door : MonoBehaviour
     public string _porteName;
     Animator animator;
     Space _spacepivot;
+    Rigidbody _rbporte;
+
     // Start is called before the first frame update
     void Start()
     {
        
+            _rbporte = _porte.GetComponent<Rigidbody>();
         animator = _porte.GetComponent<Animator>();
         _spacepivot = _pivot.GetComponent<Space>();
-       // animator.Play("doorclose");
+        // animator.Play("doorclose");
+       _rbporte.constraints.Equals(true);
+
     }
 
     // Update is called once per frame
@@ -28,8 +33,9 @@ public class Door : MonoBehaviour
     {
         if (other.gameObject.CompareTag(_porteName))
         {
-            _porte.GetComponent<Rigidbody>().mass = 1;
-          // _porte.transform.Rotate(0, 90, 0, relativeTo: _spacepivot);
+            
+            _rbporte.constraints.Equals(false);
+     
           // animator.SetBool("IsOpen", true);
             //animator.Play("Anim_Door");
         }
