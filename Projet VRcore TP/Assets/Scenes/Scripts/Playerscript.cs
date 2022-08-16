@@ -10,12 +10,15 @@ public class Playerscript : MonoBehaviour
     public GameObject _joueur;
     public TextMeshProUGUI Cash;
     public TextMeshProUGUI chrono;
+    public TextMeshProUGUI fin;
+    public GameObject textefin;
     float starttime;
     Time time;
 
     // Start is called before the first frame update
     void Start()
     {
+        textefin.SetActive(false);
         starttime = Time.realtimeSinceStartup;
         _score = 0;
         _joueur.GetComponent<GameObject>().SetActive(true);
@@ -26,9 +29,18 @@ public class Playerscript : MonoBehaviour
     {
         float t = Time.realtimeSinceStartup - starttime;
         string m = ((int)t / 60).ToString();
-        string s = ((int)t % 60).ToString(); 
+        string s = ((int)t % 60).ToString();
         Cash.text = "CASH :" + _score.ToString();
-        chrono.text = m + ":" + s;
+        chrono.text = m + ":" + s + "\n Fin : 3:00";
+        if (m == "3")
+        {
+            Cash.text = "";
+            chrono.text = "";
+            textefin.SetActive(true);
+            fin.text = "vous avez fini \n avec : " + _score.ToString() + " en Or !";
+
+        }
+
     }
     private void OnControllerColliderHit(ControllerColliderHit other)
     {
