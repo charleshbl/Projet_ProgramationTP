@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -15,12 +13,14 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-            _rbporte = _porte.GetComponent<Rigidbody>();
+
+        _rbporte = _porte.GetComponent<Rigidbody>();
         animator = _porte.GetComponent<Animator>();
         _spacepivot = _pivot.GetComponent<Space>();
         // animator.Play("doorclose");
-       _rbporte.constraints.Equals(true);
+        _rbporte.freezeRotation = true;
+        _rbporte.isKinematic = true;
+
 
     }
 
@@ -33,14 +33,16 @@ public class Door : MonoBehaviour
     {
         if (other.gameObject.CompareTag(_porteName))
         {
-            
+            _rbporte.isKinematic = false;
             _rbporte.constraints.Equals(false);
-     
-          // animator.SetBool("IsOpen", true);
+            _rbporte.freezeRotation = false;
+
+
+            // animator.SetBool("IsOpen", true);
             //animator.Play("Anim_Door");
         }
     }
-    
+
 
 
 }
