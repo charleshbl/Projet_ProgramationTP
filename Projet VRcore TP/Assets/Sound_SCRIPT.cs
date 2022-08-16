@@ -11,7 +11,10 @@ public class Sound_SCRIPT : MonoBehaviour
         CashAudioClip.Play();
 
     }
-    private void OnDestroy()
+    
+
+    
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         CashAudioClip.Play();
     }
