@@ -5,7 +5,8 @@ using TMPro;
 
 public class Playerscript : MonoBehaviour
 {
-
+    //déclaration des variables : Texte pour afficher le score et le temps de jeu, plus le compte a rebours 
+    //déclaration des variables : Cash et texte de fin.
     private int _score;
     public GameObject _joueur;
     public TextMeshProUGUI Cash;
@@ -15,7 +16,7 @@ public class Playerscript : MonoBehaviour
     float starttime;
     Time time;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         textefin.SetActive(false);
@@ -24,7 +25,7 @@ public class Playerscript : MonoBehaviour
         _joueur.GetComponent<GameObject>().SetActive(true);
     }
 
-    // Update is called once per frame
+    // Assigner le temps en minutes et en secondes - L'afficher en lettres - Mettre fin au temps et afficher au joueur que la partie est finie plus le score. 
     void Update()
     {
         float t = Time.realtimeSinceStartup - starttime;
@@ -42,6 +43,7 @@ public class Playerscript : MonoBehaviour
         }
 
     }
+    //Déclaration des différentes valeurs des pieces de monnaies collectés, et les condtions avec lesquelles les pieces réagissent 
     private void OnControllerColliderHit(ControllerColliderHit other)
     {
 
