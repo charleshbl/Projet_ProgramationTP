@@ -6,6 +6,8 @@ using UnityEngine.AI;
 //script basé sur le vidéo https://www.youtube.com/watch?v=UjkSFoLxesw 
 public class EnemyScript : MonoBehaviour
 {
+    public int PV ;
+
     public NavMeshAgent agent;
 
     public Transform player;
@@ -40,7 +42,8 @@ public class EnemyScript : MonoBehaviour
 
         if (walkPointSet)
         {
-            animator.SetBool("IsWalk",true);
+            animator.SetBool("IsWalk", true);
+            animator.Play("WalkFWD");
             agent.SetDestination(walkPoint);
         }
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
@@ -62,13 +65,14 @@ public class EnemyScript : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        animator.Play("RunFWD");
     }
     private void AttackPlayer()
     {
         //Make sure enemy doesnt move
         agent.SetDestination(transform.position);
         transform.LookAt(player);
-
+        animator.Play("Attack02");
         if (!alreadyAttacked)
         {
             alreadyAttacked = true;
@@ -91,6 +95,7 @@ public class EnemyScript : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
+        if (PV == 0) { animator.Play("Die");  }
     }
 
 }
