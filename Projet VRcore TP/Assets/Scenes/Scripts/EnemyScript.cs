@@ -12,6 +12,8 @@ public class EnemyScript : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
+    private Animator animator;
+
     //patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -28,15 +30,19 @@ public class EnemyScript : MonoBehaviour
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
-        player = GameObject.Find("XR Origin").transform;
+       // agent = GetComponent<NavMeshAgent>();
+       // player = GameObject.Find("XR Origin").transform;
+        animator = GetComponent<Animator>();
     }
     private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
 
-        if(walkPointSet) agent.SetDestination(walkPoint);
-
+        if (walkPointSet)
+        {
+            animator.SetBool("IsWalk",true);
+            agent.SetDestination(walkPoint);
+        }
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         //Walkpoint Reached
