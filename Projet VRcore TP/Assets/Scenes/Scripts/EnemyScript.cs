@@ -9,10 +9,10 @@ public class EnemyScript : MonoBehaviour
     public int PV ;
     
     public NavMeshAgent agent;
-
+    public Playerscript Playerscript;
     public Transform player;
 
-    public LayerMask whatIsGround, whatIsPlayer, QuelArme;
+    public LayerMask whatIsGround, whatIsPlayer;
 
     private Animator animator;
    private Collider Collider;
@@ -112,12 +112,12 @@ public class EnemyScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         int baseDegat =  2;
-
+        
         animator.Play("GetHit");
         
         if (other.gameObject.CompareTag("Epee")) PV -= baseDegat * 20;
         if (other.gameObject.CompareTag("Hache")) PV -= baseDegat * 25;
-
+        if (other.gameObject.CompareTag("Player")) this.Playerscript.SetPV(baseDegat);   
 
     }
 }

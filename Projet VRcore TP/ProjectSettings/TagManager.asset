@@ -13,6 +13,7 @@ TagManager:
   - goldKey
   - Epee
   - Hache
+  - Enemy
   layers:
   - Default
   - TransparentFX
