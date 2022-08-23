@@ -87,8 +87,13 @@ public class EnemyScript : MonoBehaviour
     {
         alreadyAttacked= false;
     }
-
-
+    private void Die()
+    {
+        agent.SetDestination(transform.position);
+        animator.Play("Die");
+        GameObject.Destroy(this.gameObject, 1.33f);
+    }
+   
     // Update is called once per frame
     void Update()
     {
@@ -99,7 +104,7 @@ public class EnemyScript : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
-        if (PV <= 0) { animator.Play("Die"); this.gameObject.SetActive(false);  }
+        if (PV <= 0) { Die(); }
     }
     //private void OnCollisionEnter(Collision collision)
     //{
@@ -114,7 +119,7 @@ public class EnemyScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         int baseDegat =  2;
-        
+        agent.SetDestination(transform.position);
         animator.Play("GetHit");
         
         if (other.gameObject.CompareTag("Epee")) PV -= baseDegat * 20;
