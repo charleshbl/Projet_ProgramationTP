@@ -6,11 +6,12 @@ using UnityEngine.AI;
 //script basé sur le vidéo https://www.youtube.com/watch?v=UjkSFoLxesw 
 public class EnemyScript : MonoBehaviour
 {
-    public int PV ;
-    
-    public NavMeshAgent agent;
-    public Playerscript Playerscript;
-    public Transform player;
+    public int PV;
+    public int degats;
+
+    private NavMeshAgent agent;
+    private Playerscript Playerscript;
+    private Transform player;
 
     public LayerMask whatIsGround, whatIsPlayer;
 
@@ -33,8 +34,9 @@ public class EnemyScript : MonoBehaviour
     private void Awake()
     {
 
-        // agent = GetComponent<NavMeshAgent>();
-        // player = GameObject.Find("XR Origin").transform;
+        agent = GetComponent<NavMeshAgent>();
+        player = GameObject.Find("XR Origin").transform;
+        Playerscript = GameObject.Find("XR Origin").GetComponent<Playerscript>();
         animator = GetComponent<Animator>();
         Collider = GetComponent<Collider>();
     }
@@ -117,7 +119,7 @@ public class EnemyScript : MonoBehaviour
         
         if (other.gameObject.CompareTag("Epee")) PV -= baseDegat * 20;
         if (other.gameObject.CompareTag("Hache")) PV -= baseDegat * 25;
-        if (other.gameObject.CompareTag("Player")) this.Playerscript.SetPV(baseDegat);   
+        if (other.gameObject.CompareTag("Player")) this.Playerscript.SetPV(degats);   
 
     }
 }
