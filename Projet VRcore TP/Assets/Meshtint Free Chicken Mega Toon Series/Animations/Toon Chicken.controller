@@ -39,7 +39,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Run
     m_Type: 4
@@ -51,7 +51,7 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Turn Head
     m_Type: 4
@@ -495,7 +495,7 @@ AnimatorStateMachine:
     m_Position: {x: 870, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7189730407909962021}
-    m_Position: {x: 905, y: 195, z: 0}
+    m_Position: {x: 910, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6180689652447788562}
     m_Position: {x: 940, y: 260, z: 0}
