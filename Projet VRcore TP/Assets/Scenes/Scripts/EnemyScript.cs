@@ -7,15 +7,15 @@ using UnityEngine.AI;
 public class EnemyScript : MonoBehaviour
 {
     public int PV ;
-
+    
     public NavMeshAgent agent;
 
     public Transform player;
 
-    public LayerMask whatIsGround, whatIsPlayer;
+    public LayerMask whatIsGround, whatIsPlayer, QuelArme;
 
     private Animator animator;
-
+   private Collider Collider;
     //patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -32,9 +32,11 @@ public class EnemyScript : MonoBehaviour
 
     private void Awake()
     {
-       // agent = GetComponent<NavMeshAgent>();
-       // player = GameObject.Find("XR Origin").transform;
+
+        // agent = GetComponent<NavMeshAgent>();
+        // player = GameObject.Find("XR Origin").transform;
         animator = GetComponent<Animator>();
+        Collider = GetComponent<Collider>();
     }
     private void Patroling()
     {
@@ -95,7 +97,27 @@ public class EnemyScript : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
-        if (PV == 0) { animator.Play("Die");  }
+        if (PV <= 0) { animator.Play("Die"); this.gameObject.SetActive(false);  }
     }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    int baseDegat = (int)collision.relativeVelocity.y + (int)collision.relativeVelocity.x + (int)collision.relativeVelocity.z;
 
+
+
+    //        if (collision.gameObject.CompareTag("Epee")) PV -= baseDegat * 20;
+    //        if (collision.gameObject.CompareTag("Hache")) PV -= baseDegat * 25;
+
+    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        int baseDegat =  2;
+
+        animator.Play("GetHit");
+        
+        if (other.gameObject.CompareTag("Epee")) PV -= baseDegat * 20;
+        if (other.gameObject.CompareTag("Hache")) PV -= baseDegat * 25;
+
+
+    }
 }
