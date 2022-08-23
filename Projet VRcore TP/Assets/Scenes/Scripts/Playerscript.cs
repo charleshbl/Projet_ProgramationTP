@@ -8,11 +8,12 @@ public class Playerscript : MonoBehaviour
     //déclaration des variables : Texte pour afficher le score et le temps de jeu, plus le compte a rebours 
     //déclaration des variables : Cash et texte de fin.
     private int _score;
-    public int PV;
+    public int _PV;
     public GameObject _joueur;
     public TextMeshProUGUI Cash;
     public TextMeshProUGUI chrono;
     public TextMeshProUGUI fin;
+    public TextMeshProUGUI PV;
     public GameObject textefin;
     float starttime;
     Time time;
@@ -34,6 +35,7 @@ public class Playerscript : MonoBehaviour
         string s = ((int)t % 60).ToString();
         Cash.text = "CASH :" + _score.ToString();
         chrono.text = m + ":" + s + "\n Fin : 3:00";
+        PV.text ="Vie:"+_PV.ToString();
         if (m == "3")
         {
             Cash.text = "";
@@ -42,12 +44,13 @@ public class Playerscript : MonoBehaviour
             fin.text = "vous avez fini \n avec : " + _score.ToString() + " en Or !";
 
         }
-        if (PV <= 0)
+        if (_PV <= 0)
         {
             Cash.text = "";
             chrono.text = "";
             textefin.SetActive(true);
             fin.text = "vous etes MORT! \n avec : " + _score.ToString() + " en Or !";
+           
         }
 
     }
@@ -89,8 +92,8 @@ public class Playerscript : MonoBehaviour
             _score += 25;
             other.gameObject.SetActive(false);
         }
-        else if (other.gameObject.CompareTag("Enemy")) { PV -= 1; }
+      
     }
  
-    public void SetPV(int Degat) { PV -= Degat; }
+    public void SetPV(int Degat) { _PV -= Degat; }
 }
