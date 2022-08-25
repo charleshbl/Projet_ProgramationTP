@@ -46,7 +46,7 @@ public class EnemyScript : MonoBehaviour
 
         if (walkPointSet)
         {
-            animator.SetBool("IsWalk", true);
+            
             animator.Play("WalkFWD");
             agent.SetDestination(walkPoint);
         }
