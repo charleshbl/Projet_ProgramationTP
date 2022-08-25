@@ -17,14 +17,14 @@ public class Playerscript : MonoBehaviour
     public GameObject textefin;
     float starttime;
     Time time;
-
+    
     
     void Start()
     {
         textefin.SetActive(false);
         starttime = Time.realtimeSinceStartup;
         _score = 0;
-        _joueur.GetComponent<GameObject>().SetActive(true);
+       
     }
 
     // Assigner le temps en minutes et en secondes - L'afficher en lettres - Mettre fin au temps et afficher au joueur que la partie est finie plus le score. 
@@ -50,7 +50,7 @@ public class Playerscript : MonoBehaviour
             chrono.text = "";
             textefin.SetActive(true);
             fin.text = "vous etes MORT! \n avec : " + _score.ToString() + " en Or !";
-           
+          
         }
 
     }
