@@ -8,7 +8,7 @@ public class PouletScript : MonoBehaviour
     public int PV;
 
 
-    private NavMeshAgent agent;
+    //private NavMeshAgent agent;
     
 
     public LayerMask whatIsGround, whatIsPlayer;
@@ -22,7 +22,7 @@ public class PouletScript : MonoBehaviour
     private void Awake()
     {
 
-        agent = GetComponent<NavMeshAgent>();
+        //agent = GetComponent<NavMeshAgent>();
         
         animator = GetComponent<Animator>();
         Collider = GetComponent<Collider>();
@@ -35,7 +35,7 @@ public class PouletScript : MonoBehaviour
         {
 
             animator.Play("Walk In Place");
-            agent.SetDestination(walkPoint);
+            //agent.SetDestination(walkPoint);
         }
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
@@ -55,7 +55,7 @@ public class PouletScript : MonoBehaviour
     }
     private void Die()
     {
-        agent.SetDestination(transform.position);
+        //agent.SetDestination(transform.position);
         animator.Play("Turn Head");
         GameObject.Destroy(this.gameObject, 1.33f);
     }
