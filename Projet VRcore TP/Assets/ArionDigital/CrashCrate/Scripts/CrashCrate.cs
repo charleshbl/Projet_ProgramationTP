@@ -15,10 +15,14 @@
         //DEstruction de la caisse en touchanbt une collision : jouer un son.
         private void OnTriggerEnter(Collider other)
         {
-            wholeCrate.enabled = false; 
-            boxCollider.enabled = false;
-            fracturedCrate.SetActive(true); //Destruction 
-            crashAudioClip.Play(); //SON
+            if (other.CompareTag("Crate")) { return; }
+            else
+            {
+                wholeCrate.enabled = false;
+                boxCollider.enabled = false;
+                fracturedCrate.SetActive(true); //Destruction 
+                crashAudioClip.Play(); //SON
+            }
         }
 
         [ContextMenu("Test")]

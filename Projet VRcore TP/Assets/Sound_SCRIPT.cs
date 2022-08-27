@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Sound_SCRIPT : MonoBehaviour
@@ -9,14 +7,19 @@ public class Sound_SCRIPT : MonoBehaviour
     //des qu'une monnaie heurte une collision, le son joue.
     private void OnCollisionEnter(Collision collision)
     {
-        CashAudioClip.Play();
-
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            CashAudioClip.Play();
+        }
     }
-    
+
     //Le joueur il touche la monnaie, le son joue. 
-    
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        CashAudioClip.Play();
+        if (hit.gameObject.CompareTag("Player"))
+        {
+            CashAudioClip.Play();
+        }
     }
 }
